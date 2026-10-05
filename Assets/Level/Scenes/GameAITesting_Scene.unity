@@ -754,8 +754,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollapseCheckpoint
   director: {fileID: 1843433592}
   stepIndex: 2
-  startsSequence: 0
-  hazardIds: []
+  startsSequence: 1
   playerTag: Player
 --- !u!65 &399583894
 BoxCollider:
@@ -1754,8 +1753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollapseCheckpoint
   director: {fileID: 1843433592}
   stepIndex: 0
-  startsSequence: 0
-  hazardIds: []
+  startsSequence: 1
   playerTag: Player
 --- !u!65 &727244766
 BoxCollider:
@@ -2839,8 +2837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CollapseCheckpoint
   director: {fileID: 1843433592}
   stepIndex: 4
-  startsSequence: 0
-  hazardIds: []
+  startsSequence: 1
   playerTag: Player
 --- !u!65 &1332069763
 BoxCollider:
