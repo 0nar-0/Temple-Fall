@@ -45,6 +45,7 @@ public class CollapseDirector : MonoBehaviour
     [SerializeField] private int gap;
     [SerializeField] private float multiplier = 1f;
     [SerializeField] private float currentInterval;
+    [SerializeField] private float timeUntilNextStep;
 
     private float timer;
     private readonly List<Vector3> stepPositions = new List<Vector3>();
@@ -92,6 +93,10 @@ public class CollapseDirector : MonoBehaviour
             timer -= interval;
             FireNextStep();
         }
+        if (nextStep < steps.Count)
+            timeUntilNextStep = (GetInterval(nextStep) - timer) / multiplier;
+        else
+            timeUntilNextStep = 0f;
     }
     //------CALLED BY CHECKPOINTS------
 
@@ -152,6 +157,8 @@ public class CollapseDirector : MonoBehaviour
         gap = 0;
         multiplier = 1f;
         timer = 0f;
+        timeUntilNextStep = 0f;
+        currentInterval = 0f;
     }
     private void CacheStepPositions()
     {
