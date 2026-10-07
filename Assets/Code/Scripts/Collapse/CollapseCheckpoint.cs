@@ -12,8 +12,6 @@ public class CollapseCheckpoint : MonoBehaviour
     [Tooltip("Entering this checkpoint starts the timed collapse.")]
     [SerializeField] private bool startsSequence;
 
-    [SerializeField] private string playerTag = "Player";
-
     public int StepIndex => stepIndex;
 
     private void Awake()

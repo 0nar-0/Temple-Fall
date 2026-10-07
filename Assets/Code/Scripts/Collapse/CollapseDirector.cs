@@ -44,6 +44,8 @@ public class CollapseDirector : MonoBehaviour
     [SerializeField] private int playerStep;
     [SerializeField] private int gap;
     [SerializeField] private float multiplier = 1f;
+    [SerializeField] private float currentInterval;
+    [SerializeField] private float timeUntilNextStep;
 
     private float timer;
     private readonly List<Vector3> stepPositions = new List<Vector3>();
@@ -82,14 +84,19 @@ public class CollapseDirector : MonoBehaviour
             return;
         }
         gap = playerStep - nextStep;
-        multiplier = CalculateMultiplier(gap);
-
+        float interval = GetInterval(nextStep);
+        multiplier = CalculateMultiplier(gap, interval);
+        currentInterval = interval;
         timer += Time.deltaTime * multiplier;
-        if (timer >= baseInterval)
+        if (timer >= interval)
         {
-            timer -= baseInterval;
+            timer -= interval;
             FireNextStep();
         }
+        if (nextStep < steps.Count)
+            timeUntilNextStep = (GetInterval(nextStep) - timer) / multiplier;
+        else
+            timeUntilNextStep = 0f;
     }
     //------CALLED BY CHECKPOINTS------
 
@@ -98,25 +105,30 @@ public class CollapseDirector : MonoBehaviour
         if (running || nextStep >= steps.Count) return;
         running = true;
     }
-    public void ReportProgress(int step)
+    public void ReportProgress(int step)//Report the player's progress to the director.  The director will use this to determine how fast to run the collapse sequence.
     {
         playerStep = Mathf.Max(playerStep, step);
     }
     // ------INTERNAL------
-    private float CalculateMultiplier(int gap)
+    private float CalculateMultiplier(int gap, float interval)//Calculate the speed multiplier based on the gap between the player and the collapse sequence.
     {
         float t = Mathf.InverseLerp(comfortableGap, maxGap, gap);
         float m = Mathf.Lerp(1f, maxSpeedMultiplier, t);
 
         if (minInterval > 0f)
         {
-            m = Mathf.Min(m, baseInterval / minInterval);
+            m = Mathf.Min(m, interval / minInterval);
 
         }
         return Mathf.Max(1f, m);
     }
+    private float GetInterval(int index)//Get the interval for the given step index.  If the step has a delay, use that.  Otherwise, use the base interval.
+    {
+        float d = steps[index].delay;
+        return d > 0f ? d : baseInterval;
+    }
 
-    private void FireNextStep()
+    private void FireNextStep()//Fire the next step in the sequence.  This will trigger the CollapsePieces associated with the step.
     {
         string[] ids = steps[nextStep].ids;
         if (ids != null)
@@ -145,6 +157,8 @@ public class CollapseDirector : MonoBehaviour
         gap = 0;
         multiplier = 1f;
         timer = 0f;
+        timeUntilNextStep = 0f;
+        currentInterval = 0f;
     }
     private void CacheStepPositions()
     {
