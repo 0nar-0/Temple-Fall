@@ -10,8 +10,10 @@ using UnityEngine;
 //
 //  Setup: Cube + BoxCollider + Rigidbody + this script. Give it an ID.
 // =====================================================================
+//  If something HITS it (see ChainReaction), it is "smashed": no warning,
+//  no scripted drop - it goes straight to physics, pushed by the hit.
 [RequireComponent(typeof(Rigidbody))]
-public class FallingPlatform : CollapsePiece
+public class FallingPlatform : CollapsePiece, ISmashable
 {
     [Header("Warning shake")]
     [SerializeField] private float shakeAmount = 0.06f;
@@ -32,6 +34,18 @@ public class FallingPlatform : CollapsePiece
     private Quaternion startRot;
     private int startLayer;
     private bool impacted;
+
+    private bool smashed;
+    private Vector3 smashPoint, smashVelocity;
+
+    public void Smash(Vector3 point, Vector3 velocityChange)
+    {
+        if (CurrentState == State.Collapsing || CurrentState == State.Collapsed) return;
+        smashed = true;
+        smashPoint = point;
+        smashVelocity = velocityChange;
+        CollapseNow();
+    }
 
     protected override void SaveStartState()
     {
@@ -58,6 +72,7 @@ public class FallingPlatform : CollapsePiece
         rb.rotation = startRot;
         gameObject.layer = startLayer;
         impacted = false;
+        smashed = false;
     }
 
     protected override IEnumerator WarnRoutine(float duration)
@@ -78,6 +93,16 @@ public class FallingPlatform : CollapsePiece
 
     protected override IEnumerator CollapseRoutine()
     {
+        if (smashed)
+        {
+            // Hit by something: skip the scripted drop, go straight to physics.
+            int debrisLayer = LayerMask.NameToLayer(debrisLayerName);
+            if (debrisLayer >= 0) gameObject.layer = debrisLayer;
+            rb.isKinematic = false;
+            rb.AddForceAtPosition(smashVelocity * rb.mass, smashPoint, ForceMode.Impulse);
+            yield break;
+        }
+
         float speed = 0f;
         float fallen = 0f;
 
