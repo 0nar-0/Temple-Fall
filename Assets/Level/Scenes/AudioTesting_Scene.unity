@@ -786,7 +786,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514050036}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcac3985128ed4159bc8a6b7b0a4add2, type: 3}
   m_Name: 
@@ -1586,9 +1586,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1193293124}
   - component: {fileID: 1193293128}
-  - component: {fileID: 1193293127}
   - component: {fileID: 1193293126}
   - component: {fileID: 1193293125}
+  - component: {fileID: 1193293129}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -1677,14 +1677,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!81 &1193293127
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193293123}
-  m_Enabled: 1
 --- !u!20 &1193293128
 Camera:
   m_ObjectHideFlags: 0
@@ -1736,6 +1728,20 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1193293129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193293123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &1237357975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2987,7 +2993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e022f73b431e94d0987d2e4aec37d24b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  SoundFxObject: {fileID: 2753628158086493242, guid: 5da0dba2109714257959be52167f55b8, type: 3}
+  SoundFxObject: {fileID: 0}
 --- !u!1 &1981010722 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5203353150961105270, guid: e08afda362d6e1449b2d587ad5c7baf6, type: 3}
@@ -3005,45 +3011,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245ebc518e77d462799c115f346039a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  footsteps:
-  - name: 
-    onStepClip: {fileID: 8300000, guid: 6e83cbf295cf44acf96490a8adb2fe59, type: 3}
-    onReleaseClip: {fileID: 8300000, guid: f27f2eabf3bae4e329d71d78cfc58f4f, type: 3}
-  - name: 
-    onStepClip: {fileID: 8300000, guid: b4be4075732c24d9db59029999557947, type: 3}
-    onReleaseClip: {fileID: 8300000, guid: 1e9642e20ef5c4da886add31d07317c3, type: 3}
-  - name: 
-    onStepClip: {fileID: 8300000, guid: 4bd31a907e0484798a8432674f6ee922, type: 3}
-    onReleaseClip: {fileID: 8300000, guid: 3bb6092fe8e0b48b09ced502403e3300, type: 3}
-  - name: 
-    onStepClip: {fileID: 8300000, guid: 328f794bdb26b4c22ae7753acf87c6c4, type: 3}
-    onReleaseClip: {fileID: 8300000, guid: 0284c92a6457b4ed4a3ce092b9508354, type: 3}
-  footstepsRun:
-  - name: 
-    onStepClip: {fileID: 8300000, guid: cb59fb8c14f1f4ee4a02d75c7c03a8b6, type: 3}
-    onReleaseClip: {fileID: 8300000, guid: f27f2eabf3bae4e329d71d78cfc58f4f, type: 3}
-  - name: 
-    onStepClip: {fileID: 8300000, guid: 5aebb72c8b9424497a1834717020bd96, type: 3}
-    onReleaseClip: {fileID: 8300000, guid: 1e9642e20ef5c4da886add31d07317c3, type: 3}
-  - name: 
-    onStepClip: {fileID: 8300000, guid: 7591c8ebe3ee041ce93e5bfcd5dcf9c9, type: 3}
-    onReleaseClip: {fileID: 8300000, guid: 3bb6092fe8e0b48b09ced502403e3300, type: 3}
-  - name: 
-    onStepClip: {fileID: 8300000, guid: 3164e6766f4ca4cc587b4f9ba798ab7e, type: 3}
-    onReleaseClip: {fileID: 8300000, guid: 0284c92a6457b4ed4a3ce092b9508354, type: 3}
-  jumpAudio:
-  - name: 
-    onJumpClip: {fileID: 8300000, guid: 1eb68bed927e343ec9008e2fdef48bf8, type: 3}
-    onLandClip: {fileID: 8300000, guid: 21436ffe9cc8c491c87cdbabe4d45c58, type: 3}
-  - name: 
-    onJumpClip: {fileID: 8300000, guid: 42dd15b50f1ce4d6597a2702ebc7db0e, type: 3}
-    onLandClip: {fileID: 8300000, guid: 8f1c2b2142da146aebcbb26705d55c69, type: 3}
-  - name: 
-    onJumpClip: {fileID: 8300000, guid: 6482bea41d5374fa8b1f50807a3fb9f1, type: 3}
-    onLandClip: {fileID: 8300000, guid: a2abe222e0b6d4d049e60343e64c5aff, type: 3}
-  - name: 
-    onJumpClip: {fileID: 8300000, guid: f553c7733fbff40f088f717fe2215983, type: 3}
-    onLandClip: {fileID: 8300000, guid: 202231213a2fd4e62b04336905c1368d, type: 3}
+  jumpEvent:
+    Guid:
+      Data1: -153419308
+      Data2: 1309930462
+      Data3: -637880909
+      Data4: 1894602334
+    Path: event:/character/jump
+  landEvent:
+    Guid:
+      Data1: -535777558
+      Data2: 1244922731
+      Data3: 210905271
+      Data4: -724986510
+    Path: event:/character/Land
+  _footsteps:
+    Guid:
+      Data1: 1968497264
+      Data2: 1116807955
+      Data3: 1155220660
+      Data4: -321385436
+    Path: event:/character/footsteps
 --- !u!1 &1986434061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3280,6 +3268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1995718196}
   - component: {fileID: 1995718195}
+  - component: {fileID: 1995718197}
   m_Layer: 0
   m_Name: CollapseSound
   m_TagString: Untagged
@@ -3294,7 +3283,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995718194}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42c2cc11cd5bf44a7924e87c8cc031ef, type: 3}
   m_Name: 
@@ -3316,6 +3305,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1995718197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1995718194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1542462616
+      Data2: 1311461385
+      Data3: 1153138869
+      Data4: -1308037056
+    Path: event:/Level/Collapse
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2056254294
 GameObject:
   m_ObjectHideFlags: 0

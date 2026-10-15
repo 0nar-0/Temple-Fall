@@ -1,95 +1,53 @@
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 public class character_audio : MonoBehaviour
 {
-    [System.Serializable]
-    public struct Footsteps_Walk
+
+    public EventInstance footsteps;
+
+
+    [Header("FMOD Events")]
+    [SerializeField] private EventReference jumpEvent;
+    [SerializeField] private EventReference landEvent;
+    [SerializeField] private EventReference _footsteps;
+
+    void Awake()
     {
-        public string name;
-        public AudioClip onStepClip;
-        public AudioClip onReleaseClip;
+        if (!_footsteps.IsNull)
+        {
+            footsteps = RuntimeManager.CreateInstance(_footsteps);
+        }
     }
-
-    [System.Serializable]
-    public struct Footsteps_Run
-    {
-        public string name;
-        public AudioClip onStepClip;
-        public AudioClip onReleaseClip;
-    }
-
-    [System.Serializable]
-    public struct JumpAudio 
-    {
-        public string name;
-        public AudioClip onJumpClip;
-        public AudioClip onLandClip;
-    }
-
-
-    public Footsteps_Walk[] footsteps;
-    public Footsteps_Run[] footstepsRun;
-    public JumpAudio[] jumpAudio;
-
 
     public void onStepWalk()
     {
-        if (footsteps == null || footsteps.Length == 0)
-            return;
 
-        int randomIndex = Random.Range(0, footsteps.Length);
+        RuntimeManager.AttachInstanceToGameObject(footsteps, transform, GetComponent<Rigidbody>());
+        footsteps.setParameterByName("WalkRun", 0);
+        footsteps.start();
 
-        SoundFxManager.instance.PlaySoundFxClip(
-            footsteps[randomIndex].onStepClip,
-            transform
-        );
-        SoundFxManager.instance.PlaySoundFxClip(
-            footsteps[randomIndex].onReleaseClip,
-            transform
-        );
     }
 
     public void onStepRun()
     {
-        if (footstepsRun == null || footstepsRun.Length == 0)
-            return;
-
-        int randomIndex = Random.Range(0, footstepsRun.Length);
-
-        SoundFxManager.instance.PlaySoundFxClip(
-            footstepsRun[randomIndex].onStepClip,
-            transform
-        );
-        SoundFxManager.instance.PlaySoundFxClip(
-            footstepsRun[randomIndex].onReleaseClip,
-            transform
-        );
+        if (footsteps.isValid())
+        {
+            RuntimeManager.AttachInstanceToGameObject(footsteps, transform, GetComponent<Rigidbody>());
+            footsteps.setParameterByName("WalkRun", 1);
+            footsteps.start();
+        }
     }
 
     public void onJump()
     {
-        if (jumpAudio == null || jumpAudio.Length == 0)
-            return;
-
-        int randomIndex = Random.Range(0, jumpAudio.Length);
-
-        SoundFxManager.instance.PlaySoundFxClip(
-            jumpAudio[randomIndex].onJumpClip,
-            transform
-        );
+        RuntimeManager.PlayOneShot(jumpEvent, transform.position);
     }
 
     public void onLand()
     {
-        if (jumpAudio == null || jumpAudio.Length == 0)
-            return;
-
-        int randomIndex = Random.Range(0, jumpAudio.Length);
-
-        SoundFxManager.instance.PlaySoundFxClip(
-            jumpAudio[randomIndex].onLandClip,
-            transform
-        );
+        RuntimeManager.PlayOneShot(landEvent, transform.position);
     }
 
 
