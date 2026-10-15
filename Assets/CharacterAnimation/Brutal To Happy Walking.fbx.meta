@@ -57,14 +57,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0.2888128
-        functionName: onStep
+        functionName: onStepWalk
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.79680365
-        functionName: onStep
+        functionName: onStepWalk
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
