@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 323873560895518259}
   - component: {fileID: 1375720035021588138}
   - component: {fileID: 3979756694514534163}
+  - component: {fileID: 8458350820940164213}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -143,6 +144,28 @@ MonoBehaviour:
   coyoteTime: 0.15
   jumpBufferTime: 0.15
   airAnimDelay: 0.1
+--- !u!95 &8458350820940164213
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5203353150961105270}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 848fd8fa94c292e4480d21fe0f4e1533, type: 3}
+  m_Controller: {fileID: 9100000, guid: fc10ae3d6c7f11b49b0aa37819d4bb9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &6619545957696921649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -210,6 +233,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 848fd8fa94c292e4480d21fe0f4e1533, type: 3}
       propertyPath: m_Name
       value: Brutal To Happy Walking
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 848fd8fa94c292e4480d21fe0f4e1533, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 848fd8fa94c292e4480d21fe0f4e1533, type: 3}
       propertyPath: m_Controller
