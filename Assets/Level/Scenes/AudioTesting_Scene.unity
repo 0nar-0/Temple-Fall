@@ -543,10 +543,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5764902127412547660, guid: c729fbe33ba278f43b9c6650086bd7e9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 514050042}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c729fbe33ba278f43b9c6650086bd7e9, type: 3}
 --- !u!1 &263775533
 GameObject:
@@ -774,24 +771,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 207335903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &514050036 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5764902127412547660, guid: c729fbe33ba278f43b9c6650086bd7e9, type: 3}
-  m_PrefabInstance: {fileID: 246935350}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &514050042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 514050036}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcac3985128ed4159bc8a6b7b0a4add2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  impactSound: {fileID: 8300000, guid: 59d0c5ad82b134b9f9215647783e9100, type: 3}
 --- !u!1 &619630527
 GameObject:
   m_ObjectHideFlags: 0
@@ -2949,51 +2928,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c729fbe33ba278f43b9c6650086bd7e9, type: 3}
---- !u!1 &1973420840
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1973420841}
-  - component: {fileID: 1973420842}
-  m_Layer: 0
-  m_Name: SoundFXManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &1973420841
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973420840}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1973420842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973420840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e022f73b431e94d0987d2e4aec37d24b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  SoundFxObject: {fileID: 0}
 --- !u!1 &1981010722 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5203353150961105270, guid: e08afda362d6e1449b2d587ad5c7baf6, type: 3}
@@ -3299,7 +3233,7 @@ Transform:
   m_GameObject: {fileID: 1995718194}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.33, y: 17.09, z: -2.28}
+  m_LocalPosition: {x: 8.04, y: 17.09, z: 13.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3320,18 +3254,18 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1542462616
-      Data2: 1311461385
-      Data3: 1153138869
-      Data4: -1308037056
-    Path: event:/Level/Collapse
+      Data1: -1671227613
+      Data2: 1087659625
+      Data3: -2143600511
+      Data4: 157156186
+    Path: event:/Level/Building collapse
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
+  AllowFadeout: 0
+  TriggerOnce: 1
   Preload: 0
-  NonRigidbodyVelocity: 0
+  NonRigidbodyVelocity: 1
   Params: []
   OverrideAttenuation: 0
   OverrideMinDistance: 1
@@ -3597,5 +3531,4 @@ SceneRoots:
   - {fileID: 207335903}
   - {fileID: 1960847930}
   - {fileID: 246935350}
-  - {fileID: 1973420841}
   - {fileID: 1995718196}

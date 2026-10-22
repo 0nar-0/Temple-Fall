@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9169221615008117683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Level/Building collapse
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Level/Building collapse
+  Guid:
+    Data1: -1671227613
+    Data2: 1087659625
+    Data3: -2143600511
+    Data4: 157156186
+  Banks:
+  - {fileID: -4815460462022795183}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6468235145364809298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,10 +70,10 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639276616155336090
+  lastModified: 639282960643781212
   FileSizes:
   - Name: 
-    Value: 1054
+    Value: 1114
   Exists: 1
 --- !u!114 &-5051895049467458803
 MonoBehaviour:
@@ -90,7 +117,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639276616155658975
+  lastModified: 639282960644221734
   FileSizes: []
   Exists: 1
 --- !u!114 &-1890011519093640285
@@ -142,13 +169,14 @@ MonoBehaviour:
   - {fileID: -6468235145364809298}
   - {fileID: 5405937707975961845}
   - {fileID: -1890011519093640285}
+  - {fileID: -9169221615008117683}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5641511409572282977}
   StringsBanks:
   - {fileID: -5081983149934876438}
   cacheVersion: 131861
-  cacheTime: 639276616155658975
+  cacheTime: 639282960644221734
   SerializableEventsDict:
   - key: event:/Level/Collapse
     index: 0
@@ -158,6 +186,8 @@ MonoBehaviour:
     index: 2
   - key: event:/character/Land
     index: 3
+  - key: event:/Level/Building collapse
+    index: 4
 --- !u!114 &2613532261520859559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +227,7 @@ MonoBehaviour:
   Path: FMOD/Desktop/Ambience.bank
   Name: Ambience
   StudioPath: bank:/Ambience
-  lastModified: 639276595927613577
+  lastModified: 639282960643767871
   FileSizes: []
   Exists: 1
 --- !u!114 &5405937707975961845
@@ -242,6 +272,6 @@ MonoBehaviour:
   Path: FMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639276616155333090
+  lastModified: 639282960643778917
   FileSizes: []
   Exists: 1
